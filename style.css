@@ -28,6 +28,11 @@ body {
   justify-content: space-between;
 }
 
+#logo-txt{
+  margin-left: 10px; 
+  font-size: 26px;
+}
+
 #principal {
   background-color: #2E4053;
   display: flex;
