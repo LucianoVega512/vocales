@@ -27,11 +27,10 @@
 </style>
 
 <div class="contenedor-dashboard">
-    <div class="fondo" style="grid-area: dsh; padding: 50px;">
+    <div class="fondo" style="grid-area: dsh; padding: 50px; background: var(--primary-transparent);">
         <canvas baseChart [labels]="doughnutChartLabels" [datasets]="doughnutChartDatasets"
             [options]="doughnutChartOptions" [legend]="true" [type]="'doughnut'">
         </canvas>
-
     </div>
 
     <div class="fondo" style="grid-area: ca;">

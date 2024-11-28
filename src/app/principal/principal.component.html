@@ -96,7 +96,7 @@
     </div>
     <div class="text-field">
         <!-- <label for="texto">Entrada</label> -->
-        <input type="text" id="texto" name="texto" autocomplete="off" placeholder="Texto entrada" required>
+        <input type="text" id="texto" name="texto" autocomplete="off" placeholder="Texto entrada" required [(ngModel)]="texto">
     </div>
     <button class="my-form__button" (click)="analizar()">
         Analizar
