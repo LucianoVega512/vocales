@@ -1,0 +1,46 @@
+<style>
+    .contenedor-dashboard {
+        width: calc(100vw - 70px);
+        height: calc(100vh - 64px);
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-areas:
+            "dsh dsh ca ce"
+            "dsh dsh ci co"
+            "dsh dsh cu ct";
+        /* display: flex ;
+        justify-content: center; 
+        align-items: center; */
+    }
+
+    .fondo {
+        background: var(--link-bg);
+        border: 1px solid var(--link-border);
+        margin: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* background: var(--link-bg); */
+</style>
+
+<div class="contenedor-dashboard">
+    <div class="fondo" style="grid-area: dsh; padding: 50px;">
+        <canvas baseChart [labels]="doughnutChartLabels" [datasets]="doughnutChartDatasets"
+            [options]="doughnutChartOptions" [legend]="true" [type]="'doughnut'">
+        </canvas>
+
+    </div>
+
+    <div class="fondo" style="grid-area: ca;">
+        <button (click)="modificar()">modificar</button>
+    </div>
+
+    <div class="fondo" style="grid-area: ce;">card a</div>
+    <div class="fondo" style="grid-area: ci;">card a</div>
+    <div class="fondo" style="grid-area: co;">card a</div>
+    <div class="fondo" style="grid-area: cu;">card a</div>
+    <div class="fondo" style="grid-area: ct;">card a</div>
+</div>

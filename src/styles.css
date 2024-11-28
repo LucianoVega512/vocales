@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    --primary: #DC3C99;
+    --primary-transparent: #DC3C9920;
+    --primary-light: #D327A9;
+    --violet: #ff00fb;
+    --violet-dark: #8f008d;
+    --secondary: #1D1D1D;
+    --text: #fff;
+    --text-gray: #d7d7d7;
+    --white: #FFFFFF;
+    --bg: #101010;
+    --link-bg: #171717;
+    --link-border: #202020;
+    --border: #F4F4F6;
+    --error: #FF4D4D;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    font-family: Arial, Helvetica, sans-serif;
+}
