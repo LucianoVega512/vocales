@@ -21,7 +21,7 @@ export class DashboardComponent {
   public doughnutChartLabels: string[] = ['A', 'E', 'I', 'O', 'U'];
 
   public doughnutChartDatasets: ChartConfiguration<'doughnut'>['data']['datasets'] = [
-    { data: [0, 0, 0, 0, 0] }
+    { data: [] }
   ];
 
   public doughnutChartOptions: ChartConfiguration<'doughnut'>['options'] = {

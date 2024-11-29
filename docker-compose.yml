@@ -1,0 +1,33 @@
+# Proyecto fullstack
+version: '3.1'
+
+services:
+  bd:
+    container_name: base-datos
+    image: mysql
+    ports:
+      - 3306:3306    
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=V0c@L3S
+    volumes:
+      - bd-vocales:/var/lib/mysql
+    networks:
+      - red-vocales
+
+  backend:
+    container_name: backend
+    image: backend-vocales:1.0
+    ports:
+      - 7000:7000
+    restart: always
+    environment:
+      - URL=bd:3306
+    networks:
+      - red-vocales
+
+volumes:
+  bd-vocales:
+
+networks:
+  red-vocales:

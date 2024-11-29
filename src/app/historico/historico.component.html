@@ -1,0 +1,146 @@
+<style>
+    .table-widget {
+        border-radius: 1rem;
+        background: #29263D;
+        padding: 1.5rem;
+        text-align: left;
+        overflow-x: auto;
+        user-select: none;
+        color: #FFFFFF;
+    }
+
+    .table-widget table {
+        max-width: 500px;
+        border-collapse: collapse;
+    }
+
+
+    .table-widget thead tr {
+        background: #2E2B43;
+    }
+
+    .table-widget .caption {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .table-widget .export-btn {
+        background: none;
+        color: #FFFFFF;
+        border: none;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    /* .table-widget .export-btn svg {
+        width: 2rem;
+        height: 2rem;
+    } */
+
+    .table-widget th {
+        padding: 1.25rem 1rem;
+        font-size: 1.05rem;
+        font-weight: 800;
+        vertical-align: middle;
+    }
+
+    .table-widget td {
+        padding: 1rem;
+        background: transparent;
+        color: white;
+        vertical-align: middle;
+    }
+
+    .table-widget tbody tr {
+        transition: all 0.2s;
+    }
+
+    .table-widget tbody tr:hover {
+        cursor: pointer;
+        background: #2E2B43;
+    }
+
+    .team-member-profile {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    /* .team-member-profile img {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        object-fit: cover;
+    } */
+
+    .profile-info {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .profile-info__name {
+        font-weight: 500;
+        white-space: nowrap;
+    }
+
+    .status {
+        display: flex;
+        font-weight: 500;
+        gap: 0.5rem;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .logo {
+        height: 3rem;
+        margin: 0 auto;
+        color: #DC3C99;
+    }
+</style>
+
+<article class="table-widget">
+    <div class="caption">
+        <h2>
+            Registros historicos
+        </h2>
+        <img src="assets/history.svg" alt="Logo" class="logo">
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    Texto
+                </th>
+                <th>
+                    Total Vocales
+                </th>
+            </tr>
+        </thead>
+        <tbody id="team-member-rows">
+
+            @for (registro of vocales; track $index) {
+
+            <tr (click)="dashboard($index)">
+                <td class="team-member-profile">
+                    <div class="profile-info">
+                        <div class="profile-info__name">
+                            {{registro.texto}}
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="status">
+                        {{total(registro.data)}}
+                    </div>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</article>

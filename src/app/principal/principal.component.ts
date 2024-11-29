@@ -27,6 +27,8 @@ export class PrincipalComponent {
 
     this.apiVocales.obtenerAnalisisVocales(this.texto).subscribe({
       next: (valor) => {
+        console.log(valor.analisis);
+        
         this.ruteador.navigate(['/dashboard'], { state: valor });
       },
       error: (e) => alert(e)
