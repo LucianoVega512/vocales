@@ -34,10 +34,4 @@ export class DashboardComponent {
     this.vocales = <Vocales>router.getCurrentNavigation()?.extras.state;
     this.doughnutChartDatasets[0].data = this.vocales.data;    
   }
-
-  modificar() {
-    this.doughnutChartDatasets[0].data = [10, 10, 10, 10, 10];
-    console.log(this.doughnutChartDatasets[0].data);
-    this.chart?.update();
-  }
 }

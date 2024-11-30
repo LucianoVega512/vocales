@@ -15,22 +15,22 @@ interface Vocales {
   styleUrl: './historico.component.css'
 })
 export class HistoricoComponent implements OnInit {
-  public vocales:Vocales[] = [];
+  public vocales: Vocales[] = [];
 
   constructor(private ruteador: Router, private apiVocales: VocalesService) { }
 
   ngOnInit(): void {
     this.apiVocales.obtenerListaRegistros().subscribe({
-      next:(valor)=> this.vocales = valor,
+      next: (valor) => this.vocales = valor.analisis,
       error: (e) => alert(e)
     });
   }
 
-  public total(arr:number[]):number {
+  public total(arr: number[]): number {
     return arr.reduce((a, b) => a + b, 0);
   }
-  
-  dashboard(indice:number){
+
+  dashboard(indice: number) {
     this.ruteador.navigate(['/dashboard'], { state: this.vocales.at(indice) });
   }
 }

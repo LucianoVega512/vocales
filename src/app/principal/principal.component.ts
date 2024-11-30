@@ -3,10 +3,10 @@ import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { VocalesService } from '../servicios/vocales.service';
 
-interface Vocales {
-  data: number[];
-  texto: string;
-}
+// interface Vocales {
+//   data: number[];
+//   texto: string;
+// }
 
 @Component({
   selector: 'app-principal',
@@ -22,14 +22,13 @@ export class PrincipalComponent {
 
   public analizar() {
     //enviar data al backend this.ruteador.navigate(['descripcion'], { state: prenda });
-    const vocales: Vocales = { data: [4, 6, 8, 10, 12], texto: "este es un texto" };
+    // const vocales: Vocales = { data: [4, 6, 8, 10, 12], texto: "este es un texto" };
 
 
     this.apiVocales.obtenerAnalisisVocales(this.texto).subscribe({
       next: (valor) => {
-        console.log(valor.analisis);
-        
-        this.ruteador.navigate(['/dashboard'], { state: valor });
+        // console.log(valor.analisis);        
+        this.ruteador.navigate(['/dashboard'], { state: valor.analisis });
       },
       error: (e) => alert(e)
     });

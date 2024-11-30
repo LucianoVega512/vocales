@@ -26,8 +26,8 @@ export class VocalesService {
 
   constructor(private http: HttpClient) { }
 
-  public obtenerAnalisisVocales(texto: string): Observable<Vocales> {
-    return this.http.post<Vocales>(this.ANALIZAR_VOCALES, { texto: texto });
+  public obtenerAnalisisVocales(texto: string): Observable<any> {
+    return this.http.post<any>(this.ANALIZAR_VOCALES, { texto: texto });
     // return new Observable((suscriptor) => {
     //   setTimeout(() => {
     //     suscriptor.next(VOCALES[0]);
@@ -35,11 +35,12 @@ export class VocalesService {
     // });
   }
 
-  public obtenerListaRegistros(): Observable<Vocales[]> {
-    return new Observable((suscriptor) => {
-      setTimeout(() => {
-        suscriptor.next(VOCALES);
-      }, 2000);
-    });
+  public obtenerListaRegistros(): Observable<any> {
+    return this.http.get<any>(this.LISTA_VOCALES);
+    // return new Observable((suscriptor) => {
+    //   setTimeout(() => {
+    //     suscriptor.next(VOCALES);
+    //   }, 2000);
+    // });
   }
 }

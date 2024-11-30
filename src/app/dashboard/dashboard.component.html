@@ -4,14 +4,12 @@
         height: calc(100vh - 64px);
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(3, 1fr);
+        grid-template-rows: repeat(4, 1fr);
         grid-template-areas:
             "dsh dsh ca ce"
             "dsh dsh ci co"
-            "dsh dsh cu ct";
-        /* display: flex ;
-        justify-content: center; 
-        align-items: center; */
+            "dsh dsh cu ct"
+            "dsh dsh txt txt";
     }
 
     .fondo {
@@ -34,7 +32,7 @@
     </div>
 
     <div class="fondo" style="grid-area: ca;">
-        <button (click)="modificar()">modificar</button>
+        
     </div>
 
     <div class="fondo" style="grid-area: ce;">card a</div>
@@ -42,4 +40,5 @@
     <div class="fondo" style="grid-area: co;">card a</div>
     <div class="fondo" style="grid-area: cu;">card a</div>
     <div class="fondo" style="grid-area: ct;">card a</div>
+    <div class="fondo" style="grid-area: txt;">card a</div>
 </div>
