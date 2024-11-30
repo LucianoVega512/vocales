@@ -15,13 +15,16 @@
     .fondo {
         background: var(--link-bg);
         border: 1px solid var(--link-border);
+        border-radius: 10px;
         margin: 10px;
         display: flex;
-        justify-content: center;
-        align-items: center;
+        flex-direction: column;
     }
 
-    /* background: var(--link-bg); */
+    p {
+        margin: 0;
+        text-align: center;
+    }
 </style>
 
 <div class="contenedor-dashboard">
@@ -30,15 +33,30 @@
             [options]="doughnutChartOptions" [legend]="true" [type]="'doughnut'">
         </canvas>
     </div>
+    
+    @for (valor of vocales.data; track $index) {
+    <div class="fondo" [style]="cards[$index].clase">
+        <p
+            style="font-size: 18px; font-weight: 800; background-color: #DC3C99; color: var(--link-bg); padding: 10px; border-radius: 10px 10px 0 0;">
+            {{cards[$index].titulo}}</p>
+        <div style="display: flex; height: 100%; align-items: center; justify-content: center;">
+            <p style="font-size: 3.5em; color: white; font-weight: 700;">{{valor}}</p>
+        </div>
+    </div>
+    }
 
-    <div class="fondo" style="grid-area: ca;">
-        
+    <div class="fondo" [style]="'grid-area: ct'">
+        <p
+            style="font-size: 20px; font-weight: 600; background-color: var(--primary-transparent); color: white; padding: 10px;">
+            TOTAL</p>
+        <div style="display: flex; height: 100%; align-items: center; justify-content: center;">
+            <p style="font-size: 3.5em; color: white; font-weight: 700;">{{totalVocales()}}</p>
+        </div>
     </div>
 
-    <div class="fondo" style="grid-area: ce;">card a</div>
-    <div class="fondo" style="grid-area: ci;">card a</div>
-    <div class="fondo" style="grid-area: co;">card a</div>
-    <div class="fondo" style="grid-area: cu;">card a</div>
-    <div class="fondo" style="grid-area: ct;">card a</div>
-    <div class="fondo" style="grid-area: txt;">card a</div>
+    <div class="fondo" style="grid-area: txt;">
+        <p style="font-size: 20px; font-weight: 600; color: white; padding: 10px;">
+            {{vocales.texto}}
+        </p>
+    </div>
 </div>

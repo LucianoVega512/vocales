@@ -1,48 +1,82 @@
 <style>
+    .contenedor-app {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contenedor-nav {
+        height: 64px;
+        background-color: #151e27;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+    }
+
+    .contenedor-app .contenedor-nav>p {
+        color: white;
+        font-size: 16px;
+        font-weight: 600;
+        margin-left: 10px;
+    }
+
+    .contenedor-subpanel {
+        height: calc(100vh - 64px);
+        display: flex;
+    }
+
+
+    .barra-lateral {
+        width: 70px;
+        background-color: #18222c;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contenedor-subpanel .barra-lateral>a>p {
+        color: white;
+        font-size: 10px;
+        text-align: center;
+        margin: 0;
+    }
+
+    .contenedor-panel-principal {
+        width: calc(100vw - 70px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     .logo {
         height: 2.75rem;
         margin-top: 10px;
         color: #DC3C99;
     }
 
-    a{
+    a {
         text-decoration: none;
     }
-
-    /* .enlace-activo{
-        color: white;
-    } */
 </style>
 
-<div style="height: 100vh; display: flex; flex-direction: column;">
-    <div style="height: 64px; background-color: #151e27; display: flex; justify-content: start; align-items: center;">
-        <p style="color: white; font-size: 16px; font-weight: 600; margin-left: 10px;">VOCALES</p>
+<div class="contenedor-app">
+    <div class="contenedor-nav">
+        <p>VOCALES</p>
     </div>
-    <div style="height: calc(100vh - 64px); display: flex;">
-        <div style="width: 70px; background-color: #18222c; display: flex; flex-direction: column; align-items: center;">
-            <!-- <button
-                style="margin-top: 10px; padding: 0; background: none;color: inherit; border: none; cursor: pointer;">
-                bnt
-            </button> -->
-            <!-- <nav> -->
-                <a [routerLink]="['/historicos']" routerLinkActive="enlace-activo">
-                    <img src="assets/bd.svg" alt="Logo" class="logo">
-                    <!-- <mat-icon matListItemIcon style="height: 30px; font-size: 30px; padding-right: 10px;">edit_note</mat-icon>
-                    <span matListItemTitle style="color: gray;">Editar</span> -->
-                    <p style="color: white; font-size: 10px; text-align: center; margin: 0;">Historicos</p>
-                  </a>
-             
-                <a [routerLink]="['']" routerLinkActive="enlace-activo">
-                    <img src="assets/edit_document.svg" alt="Logo" class="logo">
-                    <!-- <mat-icon matListItemIcon style="height: 30px; font-size: 30px; padding-right: 10px;">edit_note</mat-icon>
-                    <span matListItemTitle style="color: gray;">Editar</span> -->
-                    <p style="color: white; font-size: 10px; text-align: center; margin: 0;">Inicio</p>
-                  </a>
-              <!-- </nav> -->
-            <!--  -->
+    <div class="contenedor-subpanel">
+        <div class="barra-lateral">
+            <a [routerLink]="['/historicos']">
+                <img src="assets/bd.svg" alt="Logo" class="logo">
+                <p>Historicos</p>
+            </a>
+
+            <a [routerLink]="['']">
+                <img src="assets/edit_document.svg" alt="Logo" class="logo">
+                <p>Inicio</p>
+            </a>
         </div>
 
-        <div style="width: calc(100vw - 70px); display: flex; justify-content: center; align-items: center;">
+        <div class="contenedor-panel-principal">
             <router-outlet></router-outlet>
         </div>
     </div>
