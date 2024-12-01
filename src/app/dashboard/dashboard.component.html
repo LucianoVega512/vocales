@@ -1,61 +1,28 @@
-<style>
-    .contenedor-dashboard {
-        width: calc(100vw - 70px);
-        height: calc(100vh - 64px);
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(4, 1fr);
-        grid-template-areas:
-            "dsh dsh ca ce"
-            "dsh dsh ci co"
-            "dsh dsh cu ct"
-            "dsh dsh txt txt";
-    }
-
-    .fondo {
-        background: var(--link-bg);
-        border: 1px solid var(--link-border);
-        border-radius: 10px;
-        margin: 10px;
-        display: flex;
-        flex-direction: column;
-    }
-
-    p {
-        margin: 0;
-        text-align: center;
-    }
-</style>
-
 <div class="contenedor-dashboard">
-    <div class="fondo" style="grid-area: dsh; padding: 50px; background: var(--primary-transparent);">
+    <div class="fondo contenedor-grafico">
         <canvas baseChart [labels]="doughnutChartLabels" [datasets]="doughnutChartDatasets"
             [options]="doughnutChartOptions" [legend]="true" [type]="'doughnut'">
         </canvas>
     </div>
-    
+
     @for (valor of vocales.data; track $index) {
     <div class="fondo" [style]="cards[$index].clase">
-        <p
-            style="font-size: 18px; font-weight: 800; background-color: #DC3C99; color: var(--link-bg); padding: 10px; border-radius: 10px 10px 0 0;">
-            {{cards[$index].titulo}}</p>
-        <div style="display: flex; height: 100%; align-items: center; justify-content: center;">
-            <p style="font-size: 3.5em; color: white; font-weight: 700;">{{valor}}</p>
+        <p class="titulo">{{cards[$index].titulo}}</p>
+        <div class="contenedor-card">
+            <p>{{valor}}</p>
         </div>
     </div>
     }
 
     <div class="fondo" [style]="'grid-area: ct'">
-        <p
-            style="font-size: 20px; font-weight: 600; background-color: var(--primary-transparent); color: white; padding: 10px;">
-            TOTAL</p>
-        <div style="display: flex; height: 100%; align-items: center; justify-content: center;">
-            <p style="font-size: 3.5em; color: white; font-weight: 700;">{{totalVocales()}}</p>
+        <p class="titulo">TOTAL</p>
+        <div class="contenedor-card">
+            <p>{{totalVocales()}}</p>
         </div>
     </div>
 
     <div class="fondo" style="grid-area: txt;">
-        <p style="font-size: 20px; font-weight: 600; color: white; padding: 10px;">
+        <p class="texto">
             {{vocales.texto}}
         </p>
     </div>

@@ -1,47 +1,9 @@
-<style>
-    table,
-    th,
-    td {
-        border-collapse: collapse;
-        height: 50px;
-        padding: 0 5px 0 5px;
-    }
-
-    table {
-        width: 90%;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-        border: 1px solid var(--link-border);
-    }
-
-    thead tr {
-        background-color: #DC3C99;
-        text-align: left;
-        font-weight: bold;
-        color: var(--link-bg);
-    }
-
-    tbody tr:nth-of-type(even) {
-        background-color: var(--link-bg);
-    }
-
-    tbody>tr>td {
-        color: aliceblue;
-        font-size: 14px;
-    }
-
-    tbody>tr:hover {
-        background-color: #151e27;
-        cursor: pointer;
-    }
-</style>
-
-<div
-    style="display: flex; justify-content: center; height: 65vh; width: 65vw; overflow-y: auto; overflow-x: hidden; scrollbar-color: #DC3C99 transparent; scrollbar-width: thin;">
+<div class="contenedor-historico">
     <table>
         <thead>
             <tr>
-                <th style="width: 85%; border-radius: 5px 0 0 0">Texto</th>
-                <th style="border-radius: 0 5px 0 0">Total Vocales</th>
+                <th>Texto</th>
+                <th>Total Vocales</th>
             </tr>
         </thead>
         <tbody>

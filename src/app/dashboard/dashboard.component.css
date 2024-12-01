@@ -1,0 +1,61 @@
+.contenedor-dashboard {
+    width: calc(100vw - 70px);
+    height: calc(100vh - 64px);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-areas:
+        "dsh dsh ca ce"
+        "dsh dsh ci co"
+        "dsh dsh cu ct"
+        "dsh dsh txt txt";
+}
+
+.fondo {
+    background: var(--link-bg);
+    border: 1px solid var(--link-border);
+    border-radius: 10px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.contenedor-grafico {
+    grid-area: dsh;
+    padding: 50px;
+    background: var(--primary-transparent);
+}
+
+p {
+    margin: 0;
+    text-align: center;
+}
+
+.titulo {
+    font-size: 18px;
+    font-weight: 800;
+    background-color: #DC3C99;
+    color: var(--link-bg);
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+}
+
+.contenedor-card {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedor-card>p {
+    font-size: 3.5em;
+    color: white;
+    font-weight: 700;
+}
+
+.texto {
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    padding: 10px;
+}
