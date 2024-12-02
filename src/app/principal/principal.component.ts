@@ -20,7 +20,7 @@ export class PrincipalComponent {
       next: (valor) => {       
         this.ruteador.navigate(['/dashboard'], { state: valor.analisis });
       },
-      error: (e) => alert(e)
+      error: (e) => alert("Error en servidor")
     });
   }
 }

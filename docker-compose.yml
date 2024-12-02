@@ -1,7 +1,12 @@
 # Proyecto fullstack
 version: '3.1'
-
 services:
+  web:
+    container_name: servidor-web
+    image: servidor-web
+    ports:
+      - "80:80"
+      
   bd:
     container_name: base-datos
     image: mysql

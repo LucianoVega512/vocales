@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-frontend-vocales
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 80
+  selector:
+    app: deploy-frontend
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-frontend-vocales
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: deploy-frontend
+  template:
+    metadata:
+      labels:
+        app: deploy-frontend
+    spec:
+      containers:
+      - name: contenedor-frontend
+        image: servidor-web
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 80

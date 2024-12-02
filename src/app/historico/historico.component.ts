@@ -22,7 +22,7 @@ export class HistoricoComponent implements OnInit {
   ngOnInit(): void {
     this.apiVocales.obtenerListaRegistros().subscribe({
       next: (valor) => this.vocales = valor.analisis,
-      error: (e) => alert(e)
+      error: (e) => alert("Error en servidor")
     });
   }
 

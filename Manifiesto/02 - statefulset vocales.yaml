@@ -1,0 +1,46 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-basedatos-vocales
+spec:
+  clusterIP: None
+  selector:
+    app: sts-basedatos
+  ports:
+  - port: 3306
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: sts-vocales
+spec:
+  selector:
+    matchLabels:
+      app: sts-basedatos
+  serviceName: svc-basedatos-vocales
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sts-basedatos
+    spec:
+      containers:
+      - name: contenedor-basedatos
+        image: mysql
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: V0c@L3S
+        ports:
+        - containerPort: 3306
+        imagePullPolicy: Never
+        volumeMounts:
+        - name: bd-mysql
+          mountPath: /var/lib/mysql
+  volumeClaimTemplates:
+  - metadata:
+      name: bd-mysql
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 1Mi

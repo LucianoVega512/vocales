@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-backend-vocales
+spec:
+  #  type: NodePort
+  type: LoadBalancer
+  ports:
+    - port: 7000
+      targetPort: 7000
+     #  nodePort: 30000
+  selector:
+    app: deploy-backend
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-backend-vocales
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: deploy-backend
+  template:
+    metadata:
+      labels:
+        app: deploy-backend
+    spec:
+      containers:
+      - name: contenedor-backend
+        image: backend-vocales:1.0
+        env:
+        - name: URL
+          value: sts-vocales-0.svc-basedatos-vocales.default.svc.cluster.local:3306
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 7000
