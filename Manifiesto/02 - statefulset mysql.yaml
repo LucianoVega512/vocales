@@ -28,8 +28,11 @@ spec:
       - name: contenedor-basedatos
         image: mysql
         env:
+        - name: MYSQL_DATABASE
+          value: vocales
+        - name: MYSQL_USER
+          value: root
         - name: MYSQL_ROOT_PASSWORD
-          # value: V0c@L3S
           valueFrom:
             secretKeyRef:
               name: pass-mysql

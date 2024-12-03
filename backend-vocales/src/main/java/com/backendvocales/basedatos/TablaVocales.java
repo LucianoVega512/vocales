@@ -42,7 +42,7 @@ public class TablaVocales extends BaseDatos {
                                 rs.getInt(6), rs.getInt(7))));
             }
         } catch (Exception e) {
-            System.out.println(e);
+            return lista;
         }
         return lista;
     }

@@ -15,4 +15,4 @@ CREATE TABLE analisis (
     PRIMARY KEY (id)
 );
 
-INSERT INTO analisis (texto, val_a, val_e, val_i, val_o, val_u) VALUES ("Este es un texto de entrada", 1, 2, 3, 4, 5);
+INSERT INTO analisis (texto, val_a, val_e, val_i, val_o, val_u) VALUES ("aeiou", 1, 2, 3, 4, 5);

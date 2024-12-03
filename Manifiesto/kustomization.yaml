@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
 - 02 - statefulset mysql.yaml
 - 03 - deployment backend.yaml
+- 04 - deployment frontend.yaml
 
 secretGenerator:
 - name: pass-mysql

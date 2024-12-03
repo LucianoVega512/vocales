@@ -23,10 +23,8 @@ public abstract class BaseDatos {
 
         try {
             propiedades.load(Files.newInputStream(Paths.get("/config/propiedades.properties")));
-            System.out.println("ok");
             return propiedades.getProperty("URL_BASE_DATOS");
         } catch (Exception e) {
-            System.out.println(e);
             return "localhost:3306";
         }
     }
@@ -38,8 +36,7 @@ public abstract class BaseDatos {
             sentencia = conexion.prepareStatement(query, ResultSet.TYPE_SCROLL_SENSITIVE,
                             ResultSet.CONCUR_READ_ONLY);
         } catch (SQLException e) {
-            e.printStackTrace();
-            sentencia = null;
+            System.exit(0);   
         }
     }
 

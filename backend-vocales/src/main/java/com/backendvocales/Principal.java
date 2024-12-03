@@ -1,5 +1,6 @@
 package com.backendvocales;
 
+import com.backendvocales.basedatos.IniciarBaseDatos;
 import com.backendvocales.controlador.ControladorVocales;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.ext.web.Router;
@@ -30,8 +31,20 @@ public class Principal extends AbstractVerticle {
         vertx.createHttpServer().requestHandler(ruta).listen(7000);
     }
 
-    public static void main(String[] args) {    
+    private void iniciarBaseDatos() {
+        try {
+            Thread.sleep(15000);
+        } catch (Exception e) {
+            System.exit(0);
+        }
+
+        IniciarBaseDatos iniciarBaseDatos = new IniciarBaseDatos();
+        iniciarBaseDatos.iniciarBaseDatos();
+    }
+
+    public static void main(String[] args) {
         Principal principal = new Principal();
+        principal.iniciarBaseDatos();
         Vertx.vertx().deployVerticle(principal);
     }
 }
