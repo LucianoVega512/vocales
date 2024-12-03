@@ -29,7 +29,11 @@ spec:
         image: mysql
         env:
         - name: MYSQL_ROOT_PASSWORD
-          value: V0c@L3S
+          # value: V0c@L3S
+          valueFrom:
+            secretKeyRef:
+              name: pass-mysql
+              key: clave
         ports:
         - containerPort: 3306
         imagePullPolicy: Never
@@ -41,6 +45,7 @@ spec:
       name: bd-mysql
     spec:
       accessModes: [ "ReadWriteOnce" ]
+      storageClassName: ""
       resources:
         requests:
           storage: 1Mi

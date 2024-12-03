@@ -28,10 +28,17 @@ spec:
     spec:
       containers:
       - name: contenedor-backend
-        image: backend-vocales:1.0
-        env:
-        - name: URL
-          value: sts-vocales-0.svc-basedatos-vocales.default.svc.cluster.local:3306
+        image: backend-vocales
+        # env:
+        # - name: URL
+        #   value: sts-vocales-0.svc-basedatos-vocales.default.svc.cluster.local:3306
         imagePullPolicy: Never
         ports:
         - containerPort: 7000
+        volumeMounts:
+        - name: configuracion
+          mountPath: "/config"
+      volumes:
+      - name: configuracion
+        configMap:
+          name: java-config

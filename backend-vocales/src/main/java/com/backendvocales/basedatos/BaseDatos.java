@@ -1,19 +1,34 @@
 package com.backendvocales.basedatos;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Properties;
 
 public abstract class BaseDatos {
     private final String url;
-
     private PreparedStatement sentencia;
 
     public BaseDatos() {
-        String entorno = System.getenv("URL") == null ? "localhost:3306" : System.getenv("URL");
+        String entorno = crearUrlEntorno();
         this.url = String.format("jdbc:mysql://%s/vocales?allowPublicKeyRetrieval=true&useSSL=false", entorno);
+    }
+
+    private String crearUrlEntorno(){
+        Properties propiedades = new Properties();
+
+        try {
+            propiedades.load(Files.newInputStream(Paths.get("/config/propiedades.properties")));
+            System.out.println("ok");
+            return propiedades.getProperty("URL_BASE_DATOS");
+        } catch (Exception e) {
+            System.out.println(e);
+            return "localhost:3306";
+        }
     }
 
     protected void crarConexion(String query) {

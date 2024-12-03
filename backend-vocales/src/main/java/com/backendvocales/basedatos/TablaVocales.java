@@ -1,10 +1,14 @@
 package com.backendvocales.basedatos;
+
 import com.backendvocales.entidad.Vocales;
+
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
 public class TablaVocales extends BaseDatos {
+    public TablaVocales() {
+    }
 
     @Override
     protected void crearQuery(String query) {

@@ -1,11 +1,11 @@
 # Proyecto fullstack
 version: '3.1'
 services:
-  web:
-    container_name: servidor-web
-    image: servidor-web
-    ports:
-      - "80:80"
+  # web:
+  #   container_name: servidor-web
+  #   image: servidor-web
+  #   ports:
+  #     - "80:80"
       
   bd:
     container_name: base-datos
@@ -20,16 +20,16 @@ services:
     networks:
       - red-vocales
 
-  backend:
-    container_name: backend
-    image: backend-vocales:1.0
-    ports:
-      - 7000:7000
-    restart: always
-    environment:
-      - URL=bd:3306
-    networks:
-      - red-vocales
+  # backend:
+  #   container_name: backend
+  #   image: backend-vocales
+  #   ports:
+  #     - 7000:7000
+  #   restart: always
+  #   environment:
+  #     - URL=bd:3306
+  #   networks:
+  #     - red-vocales
 
 volumes:
   bd-vocales:

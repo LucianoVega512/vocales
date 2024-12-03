@@ -1,7 +1,6 @@
 package com.backendvocales;
 
 import com.backendvocales.controlador.ControladorVocales;
-
 import io.vertx.core.AbstractVerticle;
 import io.vertx.ext.web.Router;
 import io.vertx.core.Vertx;
