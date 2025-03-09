@@ -20,10 +20,10 @@ export class HistoricoComponent implements OnInit {
   constructor(private ruteador: Router, private apiVocales: VocalesService) { }
 
   ngOnInit(): void {
-    this.apiVocales.obtenerListaRegistros().subscribe({
-      next: (valor) => this.vocales = valor.analisis,
-      error: (e) => alert("Error en servidor")
-    });
+    // this.apiVocales.obtenerListaRegistros().subscribe({
+    //   next: (valor) => this.vocales = valor.analisis,
+    //   error: (e) => alert("Error en servidor")
+    // });
   }
 
   public total(arr: number[]): number {
